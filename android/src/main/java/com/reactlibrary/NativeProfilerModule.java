@@ -8,7 +8,7 @@ import com.facebook.react.modules.debug.FpsDebugFrameCallback;
 
 public class NativeProfilerModule extends ReactContextBaseJavaModule {
     private FpsDebugFrameCallback mFrameCallback;
-    private int mTotalFramesDropped;
+    private int mTotalFramesDropped = 0;
 
     private final ReactApplicationContext reactContext;
 
@@ -17,7 +17,7 @@ public class NativeProfilerModule extends ReactContextBaseJavaModule {
         this.reactContext = reactContext;
         try {
             Thread.sleep(10000);
-            mFrameCallback = new FpsDebugFrameCallback(this.reactContext);
+            mFrameCallback = new FpsDebugFrameCallback(reactContext);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -30,6 +30,9 @@ public class NativeProfilerModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void getDroppedFrames(Callback callback) {
+        if (mFrameCallback == null) {
+            mFrameCallback = new FpsDebugFrameCallback(reactContext);
+        }
         mTotalFramesDropped += mFrameCallback.getExpectedNumFrames() - mFrameCallback.getNumFrames();
         callback.invoke("Dropped frames: " + mTotalFramesDropped);
     }
