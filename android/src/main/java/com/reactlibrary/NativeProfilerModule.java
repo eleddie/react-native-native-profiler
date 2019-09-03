@@ -15,7 +15,12 @@ public class NativeProfilerModule extends ReactContextBaseJavaModule {
     public NativeProfilerModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
-        mFrameCallback = new FpsDebugFrameCallback(this.reactContext);
+        try {
+            Thread.sleep(10000);
+            mFrameCallback = new FpsDebugFrameCallback(this.reactContext);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     @Override

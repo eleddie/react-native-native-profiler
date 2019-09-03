@@ -2,22 +2,22 @@
   "name": "react-native-native-profiler",
   "title": "React Native Native Profiler",
   "version": "1.0.0",
-  "description": "TODO",
+  "description": "React native native profiler",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/github_account/react-native-native-profiler.git",
-    "baseUrl": "https://github.com/github_account/react-native-native-profiler"
+    "url": "git+https://github.com/eleddie/react-native-native-profiler.git",
+    "baseUrl": "https://github.com/eleddie/react-native-native-profiler"
   },
   "keywords": [
     "react-native"
   ],
   "author": {
-    "name": "Your Name",
-    "email": "yourname@email.com"
+    "name": "Eduardo Sanchez",
+    "email": "snchz26@gmail.com"
   },
   "license": "MIT",
   "licenseFilename": "LICENSE",
